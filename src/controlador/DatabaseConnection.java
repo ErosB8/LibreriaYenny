@@ -1,3 +1,4 @@
+package controlador;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,7 +7,7 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class DatabaseConnection {
-   private static final String URL = "jdbc:mysql://localhost:3306/prueba";
+   private static final String URL = "jdbc:mysql://localhost:3306/libreria";
    private static final String USER = "root";
    private static final String PASSWORD = "";
     
@@ -18,7 +19,10 @@ public class DatabaseConnection {
     private DatabaseConnection() {
         try {
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            JOptionPane.showMessageDialog(null, "Se conecto");
         } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error conecto");
+
             e.printStackTrace();
         }
     }
